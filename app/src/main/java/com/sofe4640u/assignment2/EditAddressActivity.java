@@ -1,5 +1,6 @@
 package com.sofe4640u.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,7 +36,7 @@ public class EditAddressActivity extends AppCompatActivity {
         }
 
         Button updateBtn = findViewById(R.id.addNewAddressBtn);
-        Button deleteBtn = findViewById(R.id.btnCancel);
+        Button cancelBtn = findViewById(R.id.btnCancel);
 
         updateBtn.setOnClickListener(view -> {
             String address = editTextAddress.getText().toString();
@@ -50,13 +51,8 @@ public class EditAddressActivity extends AppCompatActivity {
             }
         });
 
-        deleteBtn.setOnClickListener(view -> {
-            if (db.deleteLocation(originalAddress)) {
-                Toast.makeText(this, "Location deleted successfully", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(this, "Failed to delete location", Toast.LENGTH_SHORT).show();
-            }
+        cancelBtn.setOnClickListener(view -> {
+            finish();
         });
     }
 }
